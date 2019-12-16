@@ -37,9 +37,9 @@ public class AI_Truck : MonoBehaviour
         gameObject.transform.eulerAngles = rotation;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.tag == "bullet")
+        if(collision.gameObject.tag == "Bullet")
         {
             gameObject.SetActive(false);
 
