@@ -11,6 +11,8 @@ public class AI_Truck : MonoBehaviour
     int pointIndex = 0;
     public Vector3 rotation = new Vector3(0,0,0);   // Forced rotation axis.
     public Text destroyed_text;
+    public AudioClip explosion_clip;
+    private bool played_sound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,11 @@ public class AI_Truck : MonoBehaviour
         if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Missile")
         {
             gameObject.SetActive(false);
+            if (!played_sound)
+            {
+                AudioSource.PlayClipAtPoint(explosion_clip, gameObject.transform.position, 1.0f);
+                played_sound = true;
+            }
             destroyed_text.text = (gameObject.name + " " + "Destroyed");
         }
     }
