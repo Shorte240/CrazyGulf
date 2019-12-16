@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AI_Gun : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class AI_Gun : MonoBehaviour
     public GameObject firepoint;
     private GameObject plane;
     float timer = 0.0f;
-    float fireTimer = 1.0f;
+    public float fireTimer = 1.0f;
+    public Text destroyed_text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,15 @@ public class AI_Gun : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab,firepoint.transform.position, bulletPrefab.transform.rotation);
             Rigidbody bullet_rb = bullet.GetComponent<Rigidbody>();
             bullet_rb.AddForce(directionalVec * forceModifier * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Missile")
+        {
+            gameObject.SetActive(false);
+            destroyed_text.text = (gameObject.name + " " + " Destroyed");
         }
     }
 }

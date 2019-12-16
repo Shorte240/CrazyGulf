@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AI_Truck : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AI_Truck : MonoBehaviour
     public GameObject[] points = new GameObject[2];
     int pointIndex = 0;
     public Vector3 rotation = new Vector3(0,0,0);   // Forced rotation axis.
+    public Text destroyed_text;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +41,10 @@ public class AI_Truck : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Missile")
         {
             gameObject.SetActive(false);
-
+            destroyed_text.text = (gameObject.name + " " + "Destroyed");
         }
     }
 }

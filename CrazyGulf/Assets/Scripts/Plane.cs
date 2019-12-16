@@ -87,6 +87,8 @@ namespace MFlight.Demo
 
             UpdateUI();
 
+            
+
             // Calculate the autopilot stick inputs.
             float autoYaw = 0f;
             float autoPitch = 0f;
