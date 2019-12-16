@@ -4,6 +4,7 @@
 //
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MFlight.Demo
 {
@@ -19,6 +20,9 @@ namespace MFlight.Demo
     {
         [Header("Components")]
         [SerializeField] private MouseFlightController controller = null;
+        public float health;
+        public Text thrust_text;
+        public Text health_text;
 
         [Header("Physics")]
         [Tooltip("Force to push plane forwards with")] public float thrust = 100f;
@@ -77,6 +81,8 @@ namespace MFlight.Demo
             MouseLockToggle();
 
             ThrustControl();
+
+            UpdateUI();
 
             // Calculate the autopilot stick inputs.
             float autoYaw = 0f;
@@ -153,13 +159,14 @@ namespace MFlight.Demo
             if (Input.GetMouseButtonDown(1))
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                return;
             }
-
             // Unlock and show cursor when right mouse button released
-            if (Input.GetMouseButtonUp(1))
+            else if (Input.GetMouseButtonUp(1))
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                return;
             }
         }
 
@@ -174,6 +181,12 @@ namespace MFlight.Demo
             {
                 thrust -= thrust_modifier;
             }
+        }
+
+        private void UpdateUI()
+        {
+            thrust_text.text = ("Thrust: " + thrust).ToString();
+            health_text.text = ("Health: " + health).ToString();
         }
     }
 }
