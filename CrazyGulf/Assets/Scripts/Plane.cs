@@ -22,8 +22,8 @@ namespace MFlight.Demo
 
         [Header("Physics")]
         [Tooltip("Force to push plane forwards with")] public float thrust = 100f;
-        [Tooltip("Max force to push plane forwards")] public float max_thrust = 300f;
-        [Tooltip("Min force to push plane forwards")] public float min_thrust = 1f;
+        [Tooltip("Max force to push plane forwards")] public float max_thrust = 200f;
+        [Tooltip("Min force to push plane forwards")] public float min_thrust = 50f;
         [Tooltip("Value to alter thrust by")] public float thrust_modifier = 1f;
         [Tooltip("Pitch, Yaw, Roll")] public Vector3 turnTorque = new Vector3(90f, 25f, 45f);
         [Tooltip("Multiplier for all forces")] public float forceMult = 1000f;

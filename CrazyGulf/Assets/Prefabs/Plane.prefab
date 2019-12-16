@@ -361,6 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   thrust: 100
+  max_thrust: 300
+  min_thrust: 1
+  thrust_modifier: 1
   turnTorque: {x: 90, y: 25, z: 45}
   forceMult: 100
   sensitivity: 5
@@ -383,6 +386,7 @@ MonoBehaviour:
   bullet_prefab: {fileID: 1692932086203476136, guid: b6b480ac7d64382429eb2cc030527428,
     type: 3}
   bullet_spawn: {fileID: 6869454314181693085}
+  force_modifier: 150000
 --- !u!114 &2709951535436698594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629458485877166279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.402}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5727137642085198527}
@@ -914,7 +918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3964015375930335310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.35, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563113176137864}

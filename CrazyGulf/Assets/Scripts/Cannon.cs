@@ -6,6 +6,7 @@ public class Cannon : MonoBehaviour
 {
     public GameObject bullet_prefab;
     public Transform bullet_spawn;
+    public float force_modifier = 150000.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class Cannon : MonoBehaviour
             // Spawn bullets
             GameObject bullet = Instantiate(bullet_prefab, bullet_spawn.position, bullet_spawn.transform.rotation);
             Rigidbody bullet_rb = bullet.GetComponent<Rigidbody>();
-            bullet_rb.AddForce(bullet.transform.forward * 75000.0f * Time.deltaTime);
+            bullet_rb.AddForce(bullet.transform.forward * force_modifier * Time.deltaTime);
             // Stuff
         }
     }
