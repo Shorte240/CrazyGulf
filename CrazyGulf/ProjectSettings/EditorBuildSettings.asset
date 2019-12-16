@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DemoFlight.unity
-    guid: 20dddf1c73edf8b43a45ac49c16cb892
+    path: Assets/Scenes/Alex.unity
+    guid: 5936c7a30418e3a48b91b99ad8d583eb
   m_configObjects: {}

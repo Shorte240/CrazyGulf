@@ -50,10 +50,12 @@ public class Reset : MonoBehaviour
             if (reset_timer <= 0)
             {
                 plane.SetActive(true);
-                //plane.GetComponent<Plane>().health;
+                plane.GetComponent<MFlight.Demo.PlaneController>().health = 5f;
+                plane.GetComponent<MFlight.Demo.PlaneController>().thrust = 100f;
                 plane.GetComponent<Missile>().missiles = 10;
                 Vector3 pos = reset_transform.position;
                 plane.transform.position = reset_transform.position;
+                plane.transform.rotation = reset_transform.rotation;
                 reset_timer = 3f;
                 played_sound = false;
             }

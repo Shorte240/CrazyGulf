@@ -33,7 +33,7 @@ public class Missile : MonoBehaviour
     public void FireMissile()
     {
         // Play sound
-        if (!missile_audio.isPlaying)
+        if (!missile_audio.isPlaying && missiles > 0)
         {
             missile_audio.Play();
         }
