@@ -87,6 +87,7 @@ namespace MFlight.Demo
 
             UpdateUI();
 
+
             // Calculate the autopilot stick inputs.
             float autoYaw = 0f;
             float autoPitch = 0f;
@@ -159,10 +160,10 @@ namespace MFlight.Demo
         private void OnCollisionEnter(Collision collision)
         {
             // Instantiate explosion
-            if (collision.relativeVelocity.magnitude > 10)
+            if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Missile")
             {
                 // Destroy this object
-                //Destroy(gameObject);
+                gameObject.SetActive(false);
                 Debug.Log("Died");
             }
         }
@@ -203,5 +204,7 @@ namespace MFlight.Demo
             thrust_text.text = ("Thrust: " + thrust).ToString();
             health_text.text = ("Health: " + health).ToString();
         }
+
+        
     }
 }
