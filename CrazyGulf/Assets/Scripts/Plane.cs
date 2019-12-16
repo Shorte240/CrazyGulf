@@ -22,6 +22,9 @@ namespace MFlight.Demo
 
         [Header("Physics")]
         [Tooltip("Force to push plane forwards with")] public float thrust = 100f;
+        [Tooltip("Max force to push plane forwards")] public float max_thrust = 300f;
+        [Tooltip("Min force to push plane forwards")] public float min_thrust = 1f;
+        [Tooltip("Value to alter thrust by")] public float thrust_modifier = 1f;
         [Tooltip("Pitch, Yaw, Roll")] public Vector3 turnTorque = new Vector3(90f, 25f, 45f);
         [Tooltip("Multiplier for all forces")] public float forceMult = 1000f;
 
@@ -71,18 +74,9 @@ namespace MFlight.Demo
                 rollOverride = true;
             }
 
-            // Hide and lock cursor when right mouse button pressed
-            if (Input.GetMouseButtonDown(1))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            MouseLockToggle();
 
-            // Unlock and show cursor when right mouse button released
-            if (Input.GetMouseButtonUp(1))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
+            ThrustControl();
 
             // Calculate the autopilot stick inputs.
             float autoYaw = 0f;
@@ -151,6 +145,35 @@ namespace MFlight.Demo
                                                 turnTorque.y * yaw,
                                                 -turnTorque.z * roll) * forceMult,
                                     ForceMode.Force);
+        }
+
+        private void MouseLockToggle()
+        {
+            // Hide and lock cursor when right mouse button pressed
+            if (Input.GetMouseButtonDown(1))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            // Unlock and show cursor when right mouse button released
+            if (Input.GetMouseButtonUp(1))
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+
+        private void ThrustControl()
+        {
+            if (Input.GetButton("Increase Thrust") && thrust < max_thrust)
+            {
+                thrust += thrust_modifier;
+            }
+
+            if (Input.GetButton("Decrease Thrust") && thrust > min_thrust)
+            {
+                thrust -= thrust_modifier;
+            }
         }
     }
 }
