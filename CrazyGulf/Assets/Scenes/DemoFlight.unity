@@ -899,6 +899,11 @@ PrefabInstance:
       propertyPath: health_text
       value: 
       objectReference: {fileID: 929702634}
+    - target: {fileID: 114329657595640044, guid: 76845026de374da4aa455cd164e63143,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2709951535436698594, guid: 76845026de374da4aa455cd164e63143,
         type: 3}
       propertyPath: bomb_text

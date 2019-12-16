@@ -20,7 +20,7 @@ namespace MFlight.Demo
     {
         [Header("Components")]
         [SerializeField] private MouseFlightController controller = null;
-        public float health;
+        public float health = 5f;
         public Text thrust_text;
         public Text health_text;
 
@@ -52,6 +52,9 @@ namespace MFlight.Demo
 
         private void Awake()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             rigid = GetComponent<Rigidbody>();
 
             if (controller == null)
@@ -153,20 +156,32 @@ namespace MFlight.Demo
                                     ForceMode.Force);
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            // Instantiate explosion
+            if (collision.relativeVelocity.magnitude > 10)
+            {
+                // Destroy this object
+                //Destroy(gameObject);
+                Debug.Log("Died");
+            }
+        }
+
         private void MouseLockToggle()
         {
             // Hide and lock cursor when right mouse button pressed
             if (Input.GetMouseButtonDown(1))
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                return;
-            }
-            // Unlock and show cursor when right mouse button released
-            else if (Input.GetMouseButtonUp(1))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                return;
+                if (Cursor.lockState == CursorLockMode.None)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false; 
+                }
+                else if (Cursor.lockState == CursorLockMode.Locked)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
             }
         }
 
