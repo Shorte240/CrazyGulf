@@ -230,8 +230,8 @@ namespace MFlight.Demo
         private void UpdateUI()
         {
             thrust_text.text = ("Thrust: " + thrust).ToString();
-            health_text.text = ("Health: " + health).ToString();
-            fuel_text.text = ("Fuel: " + fuel.ToString("F2"));
+            health_text.text = (health).ToString();
+            fuel_text.text = (fuel.ToString("F2"));
         }
 
         
