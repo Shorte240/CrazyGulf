@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - EnemyBullet
   - Missile
+  - Fuel Pickup
+  - Missile Pickup
   layers:
   - Default
   - TransparentFX

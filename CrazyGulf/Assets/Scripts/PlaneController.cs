@@ -179,7 +179,7 @@ namespace MFlight.Demo
                 health -= 1;
             }
             // Instantiate explosion
-            else if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Missile")
+            else if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Missile" && collision.gameObject.tag != "Missile Pickup" && collision.gameObject.tag != "Fuel Pickup")
             {
                 // Destroy this object
                 gameObject.SetActive(false);
