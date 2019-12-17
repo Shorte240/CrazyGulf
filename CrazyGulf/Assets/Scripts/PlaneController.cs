@@ -23,6 +23,7 @@ namespace MFlight.Demo
         public float health = 5f;
         public Text thrust_text;
         public Text health_text;
+        public AudioSource engine_audio;
 
         [Header("Physics")]
         [Tooltip("Force to push plane forwards with")] public float thrust = 100f;
@@ -57,6 +58,8 @@ namespace MFlight.Demo
 
             rigid = GetComponent<Rigidbody>();
 
+            engine_audio.volume = 0.2f;
+
             if (controller == null)
                 Debug.LogError(name + ": Plane - Missing reference to MouseFlightController!");
         }
@@ -87,6 +90,16 @@ namespace MFlight.Demo
 
             UpdateUI();
 
+            if (health == 0)
+            {
+                gameObject.SetActive(false);
+            }
+
+            // Play sound
+            if (!engine_audio.isPlaying)
+            {
+                engine_audio.Play();
+            }
 
             // Calculate the autopilot stick inputs.
             float autoYaw = 0f;
@@ -159,12 +172,15 @@ namespace MFlight.Demo
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.tag == "EnemyBullet")
+            {
+                health -= 1;
+            }
             // Instantiate explosion
-            if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Missile")
+            else if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Missile")
             {
                 // Destroy this object
                 gameObject.SetActive(false);
-                Debug.Log("Died");
             }
         }
 

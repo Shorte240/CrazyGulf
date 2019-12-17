@@ -26,10 +26,12 @@ public class Cannon : MonoBehaviour
                 cannon_audio.Play(); 
             }
 
+            float plane_mag = gameObject.GetComponent<Rigidbody>().velocity.magnitude;
+
             // Spawn bullets
             GameObject bullet = Instantiate(bullet_prefab, bullet_spawn.position, bullet_spawn.transform.rotation);
             Rigidbody bullet_rb = bullet.GetComponent<Rigidbody>();
-            bullet_rb.AddForce(bullet.transform.forward * force_modifier * Time.deltaTime);
+            bullet_rb.AddForce(bullet.transform.forward * (force_modifier + plane_mag) * Time.deltaTime);
             // Stuff
         }
     }

@@ -20,6 +20,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (gameObject.tag == "EnemyBullet" && collision.gameObject.tag == "Plane")
+        {
+            // Destroy this object
+            Destroy(gameObject);
+        }
         // Instantiate explosion
         if (collision.relativeVelocity.magnitude > 10 && collision.gameObject.tag != "Plane")
         {
