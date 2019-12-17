@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AI_Truck : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public GameObject[] points = new GameObject[2];
+    public GameObject[] points;
     int pointIndex = 0;
     public Vector3 rotation = new Vector3(0,0,0);   // Forced rotation axis.
     public Text destroyed_text;
@@ -27,14 +27,7 @@ public class AI_Truck : MonoBehaviour
         // Switch to other point if we find that the distance to the destination point is less than 0.1f.
         if(agent.remainingDistance < 0.1f)
         {
-            if(pointIndex == 0)
-            {
-                pointIndex = 1;
-            }
-            else
-            {
-                pointIndex = 0;
-            }
+            pointIndex++;
             agent.SetDestination(points[pointIndex].transform.position);
         }
         // Force rotation of the truck
