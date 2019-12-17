@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8016142323217808670}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Truck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.92
-  m_Speed: 15
+  m_Speed: 14
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 140
@@ -281,11 +281,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6080655649054456457}
     m_Modifications:
-    - target: {fileID: 377453188069353027, guid: 6623344878f76c64a85e90ee3d8317fa,
-        type: 3}
-      propertyPath: m_Name
-      value: Truck Dust
-      objectReference: {fileID: 0}
     - target: {fileID: 377453188069353028, guid: 6623344878f76c64a85e90ee3d8317fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -340,6 +335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 103.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 377453188069353027, guid: 6623344878f76c64a85e90ee3d8317fa,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Dust
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6623344878f76c64a85e90ee3d8317fa, type: 3}
