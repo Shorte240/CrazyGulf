@@ -216,6 +216,11 @@ namespace MFlight.Demo
             {
                 thrust = min_thrust * 2.0f;
             }
+
+            if (fuel <= 0.0f)
+            {
+                fuel = 0.0f;
+            }
             //if (Input.GetButton("Increase Thrust") && thrust < max_thrust)
             //{
             //    thrust += thrust_modifier;
@@ -229,9 +234,9 @@ namespace MFlight.Demo
 
         private void UpdateUI()
         {
-            thrust_text.text = ("Thrust: " + thrust).ToString();
+            thrust_text.text = ("Thrust: " + thrust.ToString());
             health_text.text = (health).ToString();
-            fuel_text.text = (fuel.ToString("F2"));
+            fuel_text.text = (fuel).ToString("F2");
         }
 
         

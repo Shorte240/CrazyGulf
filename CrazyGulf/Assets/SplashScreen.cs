@@ -19,7 +19,7 @@ public class SplashScreen : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > splashTimer)
         {
-            SceneManager.UnloadScene(1);
+            SceneManager.UnloadScene("Splash");
             SceneManager.LoadScene("Menu");
         }
     }

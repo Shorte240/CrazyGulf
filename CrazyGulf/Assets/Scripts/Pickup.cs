@@ -25,7 +25,12 @@ public class Pickup : MonoBehaviour
         }
         else if (other.gameObject.tag == "Plane" && gameObject.tag == "Missile Pickup")
         {
-            other.gameObject.GetComponentInParent<Missile>().missiles = 10;
+            other.gameObject.GetComponentInParent<Missile>().missiles = 3;
+            for (int i = 0; i < other.gameObject.GetComponentInParent<Missile>().missiles; i++)
+            {
+                GameObject.FindObjectOfType<DisplayMissiles>().misslesUI[i].SetActive(true); 
+
+            }
             Destroy(gameObject);
         }
     }
