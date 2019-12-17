@@ -53,7 +53,7 @@ public class Reset : MonoBehaviour
                 plane.GetComponent<MFlight.Demo.PlaneController>().health = 5f;
                 plane.GetComponent<MFlight.Demo.PlaneController>().thrust = 100f;
                 plane.GetComponent<MFlight.Demo.PlaneController>().fuel = 5f;
-                plane.GetComponent<Missile>().missiles = 10;
+                plane.GetComponent<Missile>().missiles = 3;
                 plane.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
                 GameObject.Find("MouseFlightRig").GetComponent<MFlight.MouseFlightController>().isMouseAimFrozen = true;
                 GameObject.Find("MouseFlightRig").GetComponent<MFlight.MouseFlightController>().locktimer = 3f;
