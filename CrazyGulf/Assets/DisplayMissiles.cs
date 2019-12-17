@@ -15,9 +15,14 @@ public class DisplayMissiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < missleCount; i++)
+        if (GameObject.FindObjectOfType<Missile>())
         {
-            misslesUI[i].SetActive(false);
+            missleCount = GameObject.FindObjectOfType<Missile>().missiles;
+
+            for (int i = 0; i < 3 - missleCount; i++)
+            {
+                misslesUI[i].SetActive(false);
+            } 
         }
     }
 }

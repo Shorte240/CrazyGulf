@@ -227,9 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bbe0ad438f5a24bb34c5c82bbbb7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
+  points: []
   rotation: {x: 0, y: 0, z: 0}
   destroyed_text: {fileID: 0}
   explosion_clip: {fileID: 0}

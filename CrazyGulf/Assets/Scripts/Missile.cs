@@ -9,7 +9,7 @@ public class Missile : MonoBehaviour
     public Transform[] missile_spawn;
     public float force_modifier = 200000.0f;
     public float life_time = 5.0f;
-    public int missiles = 10;
+    public int missiles = 3;
     public Text missile_text;
     public AudioSource missile_audio;
 

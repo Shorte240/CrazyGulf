@@ -27,7 +27,7 @@ public class AI_Truck : MonoBehaviour
         // Switch to other point if we find that the distance to the destination point is less than 0.1f.
         if(agent.remainingDistance < 0.1f)
         {
-            if (pointIndex < points.Length)
+            if (pointIndex < points.Length - 1)
             {
                 pointIndex++; 
                 agent.SetDestination(points[pointIndex].transform.position);
