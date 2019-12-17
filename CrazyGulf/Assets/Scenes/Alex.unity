@@ -3049,7 +3049,7 @@ ParticleSystem:
   m_GameObject: {fileID: 136592973}
   serializedVersion: 6
   lengthInSec: 10
-  simulationSpeed: 5
+  simulationSpeed: 8
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -32937,7 +32937,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1124761510}
   serializedVersion: 6
   lengthInSec: 10
-  simulationSpeed: 5
+  simulationSpeed: 8
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
