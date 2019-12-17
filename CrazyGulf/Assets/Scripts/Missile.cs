@@ -7,7 +7,7 @@ public class Missile : MonoBehaviour
 {
     public GameObject missile_prefab;
     public Transform[] missile_spawn;
-    public float force_modifier = 150000.0f;
+    public float force_modifier = 200000.0f;
     public float life_time = 5.0f;
     public int missiles = 10;
     public Text missile_text;
@@ -43,7 +43,7 @@ public class Missile : MonoBehaviour
             Transform spawn = missile_spawn[Random.Range(0, missile_spawn.Length)];
             GameObject missile = Instantiate(missile_prefab, spawn);
             Rigidbody missile_rb = missile.GetComponent<Rigidbody>();
-            missile_rb.AddForce(missile.transform.up * force_modifier * Time.deltaTime);
+            missile_rb.AddForce(-missile.transform.forward * force_modifier * Time.deltaTime);
             missiles -= 1;
         }
     }

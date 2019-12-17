@@ -21,8 +21,10 @@ namespace MFlight.Demo
         [Header("Components")]
         [SerializeField] private MouseFlightController controller = null;
         public float health = 5f;
+        public float fuel = 5f;
         public Text thrust_text;
         public Text health_text;
+        public Text fuel_text;
         public AudioSource engine_audio;
 
         [Header("Physics")]
@@ -204,21 +206,32 @@ namespace MFlight.Demo
 
         private void ThrustControl()
         {
-            if (Input.GetButton("Increase Thrust") && thrust < max_thrust)
+            if (Input.GetButton("Increase Thrust") && fuel > 0)
             {
-                thrust += thrust_modifier;
+                thrust = max_thrust;
+                fuel -= Time.deltaTime;
             }
 
-            if (Input.GetButton("Decrease Thrust") && thrust > min_thrust)
+            if (fuel <= 0.0f || Input.GetButtonUp("Increase Thrust"))
             {
-                thrust -= thrust_modifier;
+                thrust = min_thrust * 2.0f;
             }
+            //if (Input.GetButton("Increase Thrust") && thrust < max_thrust)
+            //{
+            //    thrust += thrust_modifier;
+            //}
+
+            //if (Input.GetButton("Decrease Thrust") && thrust > min_thrust)
+            //{
+            //    thrust -= thrust_modifier;
+            //}
         }
 
         private void UpdateUI()
         {
             thrust_text.text = ("Thrust: " + thrust).ToString();
             health_text.text = ("Health: " + health).ToString();
+            fuel_text.text = ("Fuel: " + fuel.ToString("F2"));
         }
 
         
