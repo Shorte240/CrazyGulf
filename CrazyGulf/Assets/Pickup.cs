@@ -18,7 +18,6 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Plane" && gameObject.tag == "Fuel Pickup")
         {
             other.gameObject.GetComponentInParent<MFlight.Demo.PlaneController>().fuel = 5.0f;

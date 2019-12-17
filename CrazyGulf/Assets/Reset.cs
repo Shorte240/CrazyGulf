@@ -53,6 +53,10 @@ public class Reset : MonoBehaviour
                 plane.GetComponent<MFlight.Demo.PlaneController>().health = 5f;
                 plane.GetComponent<MFlight.Demo.PlaneController>().thrust = 100f;
                 plane.GetComponent<Missile>().missiles = 10;
+                GameObject.Find("MouseFlightRig").GetComponent<MFlight.MouseFlightController>().isMouseAimFrozen = true;
+                GameObject.Find("MouseFlightRig").GetComponent<MFlight.MouseFlightController>().locktimer = 3f;
+                //plane.GetComponent<MFlight.MouseFlightController>().isMouseAimFrozen = true;
+                //plane.GetComponent<MFlight.MouseFlightController>().locktimer = 3f;
                 Vector3 pos = reset_transform.position;
                 plane.transform.position = reset_transform.position;
                 plane.transform.rotation = reset_transform.rotation;

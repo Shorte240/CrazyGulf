@@ -27,6 +27,10 @@ namespace MFlight
         [SerializeField] [Tooltip("Follow aircraft using fixed update loop")]
         private bool useFixed = true;
 
+        [SerializeField]
+        [Tooltip("How long the plane is locked.")]
+        public float locktimer = 3f;
+
         [SerializeField] [Tooltip("How quickly the camera tracks the mouse aim point.")]
         private float camSmoothSpeed = 5f;
 
@@ -41,7 +45,7 @@ namespace MFlight
         private bool showDebugInfo = false;
 
         private Vector3 frozenDirection = Vector3.forward;
-        private bool isMouseAimFrozen = false;
+        public bool isMouseAimFrozen = false;
 
         /// <summary>
         /// Get a point along the aircraft's boresight projected out to aimDistance meters.
@@ -94,10 +98,24 @@ namespace MFlight
             // When parented to something (such as an aircraft) it will inherit those
             // rotations causing unintended rotations as it gets dragged around.
             transform.parent = null;
+
+            isMouseAimFrozen = true;
+            frozenDirection = mouseAim.forward;
         }
 
         private void Update()
         {
+            if (locktimer > 0)
+            {
+                locktimer -= Time.deltaTime; 
+            }
+
+            if (locktimer <= 0.0f && isMouseAimFrozen)
+            {
+                isMouseAimFrozen = false;
+                mouseAim.forward = frozenDirection;
+            }
+
             if (useFixed == false)
                 UpdateCameraPos();
 
