@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a62f7a6d8c7c3324784a658069fa6188
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shader: {fileID: 4800000, guid: 7de9c27746c606a4a8d4e9a36a49e50a, type: 3}
+  - ditheringReference: {fileID: 2800000, guid: 45fbc600a20e189458a7a0d291de73f9,
+      type: 3}
+  - ditheringPattern: {fileID: 2800000, guid: f81ec1e54a50b9a43bd29aab7e14aeeb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
