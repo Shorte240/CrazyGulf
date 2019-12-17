@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ac70133c258b48f4ebd3188527e0ea06
+guid: 98dc48e3f39f1594984b7534d9bf1067
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: PlaneMaterial
-    second: {fileID: 2100000, guid: 9c5af37727261f04ca4e5d6494056f53, type: 2}
+      name: MissileMaterial
+    second: {fileID: 2100000, guid: 5598b3a0a320e8643b71c383e2abc1a2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
