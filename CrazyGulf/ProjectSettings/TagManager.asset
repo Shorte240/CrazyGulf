@@ -10,6 +10,7 @@ TagManager:
   - Missile
   - Fuel Pickup
   - Missile Pickup
+  - Truck
   layers:
   - Default
   - TransparentFX

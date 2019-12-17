@@ -27,8 +27,11 @@ public class AI_Truck : MonoBehaviour
         // Switch to other point if we find that the distance to the destination point is less than 0.1f.
         if(agent.remainingDistance < 0.1f)
         {
-            pointIndex++;
-            agent.SetDestination(points[pointIndex].transform.position);
+            if (pointIndex < points.Length)
+            {
+                pointIndex++; 
+                agent.SetDestination(points[pointIndex].transform.position);
+            }
         }
         // Force rotation of the truck
         gameObject.transform.eulerAngles = rotation;
