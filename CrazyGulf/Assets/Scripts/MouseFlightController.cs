@@ -100,7 +100,8 @@ namespace MFlight
             transform.parent = null;
 
             isMouseAimFrozen = true;
-            frozenDirection = mouseAim.forward;
+            //frozenDirection = mouseAim.forward;
+            frozenDirection = GameObject.Find("Plane").transform.forward;
         }
 
         private void Update()

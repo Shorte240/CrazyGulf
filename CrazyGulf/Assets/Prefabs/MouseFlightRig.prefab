@@ -80,10 +80,12 @@ MonoBehaviour:
   cameraRig: {fileID: 4543348934785170}
   cam: {fileID: 4696854366641388}
   useFixed: 0
+  locktimer: 3
   camSmoothSpeed: 5
   mouseSensitivity: 3
   aimDistance: 500
   showDebugInfo: 0
+  isMouseAimFrozen: 0
 --- !u!1 &1411132086413374
 GameObject:
   m_ObjectHideFlags: 0

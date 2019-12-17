@@ -8,6 +8,7 @@ public class Cannon : MonoBehaviour
     public Transform bullet_spawn;
     public float force_modifier = 150000.0f;
     public AudioSource cannon_audio;
+    public ParticleSystem gun_particle;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,12 @@ public class Cannon : MonoBehaviour
         // Fire the cannon
         if (Input.GetMouseButton(0))
         {
+            // Play sprite
+            if (!gun_particle.isPlaying)
+            {
+                gun_particle.Play(); 
+            }
+
             // Play sound
             if (!cannon_audio.isPlaying)
             {
@@ -33,6 +40,10 @@ public class Cannon : MonoBehaviour
             Rigidbody bullet_rb = bullet.GetComponent<Rigidbody>();
             bullet_rb.AddForce(bullet.transform.forward * (force_modifier + plane_mag) * Time.deltaTime);
             // Stuff
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            gun_particle.Stop();
         }
     }
 }
